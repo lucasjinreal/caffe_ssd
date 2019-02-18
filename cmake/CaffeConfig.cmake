@@ -19,9 +19,9 @@
 
 # OpenCV dependency (optional)
 
-if(@USE_OPENCV@)
+if(ON)
   if(NOT OpenCV_FOUND)
-    set(Caffe_OpenCV_CONFIG_PATH "@OpenCV_CONFIG_PATH@")
+    set(Caffe_OpenCV_CONFIG_PATH "/usr/local/share/OpenCV")
     if(Caffe_OpenCV_CONFIG_PATH)
       get_filename_component(Caffe_OpenCV_CONFIG_PATH ${Caffe_OpenCV_CONFIG_PATH} ABSOLUTE)
 
@@ -50,6 +50,6 @@ endif()
 set(Caffe_LIBRARIES caffe)
 
 # Cuda support variables
-set(Caffe_CPU_ONLY @CPU_ONLY@)
-set(Caffe_HAVE_CUDA @HAVE_CUDA@)
-set(Caffe_HAVE_CUDNN @HAVE_CUDNN@)
+set(Caffe_CPU_ONLY OFF)
+set(Caffe_HAVE_CUDA TRUE)
+set(Caffe_HAVE_CUDNN FALSE)

@@ -12,10 +12,7 @@ foreach(source ${srcs})
 
   # target
   add_executable(${name} ${source})
-
-  # find_package(OpenCV REQUIRED)
-  message(STATUS ${Caffe_LINKER_LIBS})
-  target_link_libraries(${name} ${Caffe_LINK} ${Caffe_LINKER_LIBS})
+  target_link_libraries(${name} ${Caffe_LINK})
   caffe_default_properties(${name})
 
   # set back RUNTIME_OUTPUT_DIRECTORY
@@ -28,5 +25,6 @@ foreach(source ${srcs})
   endif()
 
   # Install
-  install(TARGETS ${name} DESTINATION bin)
+  install(TARGETS ${name} DESTINATION ${CMAKE_INSTALL_BINDIR})
+
 endforeach(source)
